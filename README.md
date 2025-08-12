@@ -1,6 +1,6 @@
-# African Travel Itinerary App
+# Detty December 2025 Travel App
 
-An interactive travel planning application for your 32-day multi-country Africa trip in December.
+An interactive travel planning application for your 32-day Detty December 2025 adventure across Africa.
 
 ## Features
 
@@ -86,4 +86,4 @@ npm run build
 
 **Additional Estimates**: $2,000-$6,000 (activities, food, transport)
 
-Built with ❤️ for your African adventure!
+Built with ❤️ for your Detty December 2025 adventure! 🎉
