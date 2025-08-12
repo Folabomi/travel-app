@@ -1,36 +1,89 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# African Travel Itinerary App
+
+An interactive travel planning application for your 32-day multi-country Africa trip in December.
+
+## Features
+
+- **Interactive Itinerary Display**: View your complete travel plan with flights, accommodations, and visas
+- **Cost Tracking**: Track expenses in cash and points across multiple loyalty programs
+- **Flight Search Integration**: Search flights directly via Google Flights
+- **Hotel Search**: Find accommodations through Google Hotels, Booking.com, and Expedia
+- **Visa Requirements**: See visa requirements and costs for each destination
+- **Travel Insights**: Get helpful tips specific to your trip
+
+## Tech Stack
+
+- **Next.js 15** with App Router
+- **TypeScript** for type safety
+- **Tailwind CSS** for styling
+- **Vercel** for deployment
+
+## Destinations
+
+- **Doha, Qatar** (2 nights)
+- **Nairobi, Kenya** (5 nights)
+- **Diani Beach, Kenya** (optional 2 nights)
+- **Cape Town, South Africa** (14 nights)
+- **Johannesburg, South Africa** (2 nights)
+- **Lagos, Nigeria** (9 nights)
+
+## Routes
+
+- SEA → DOH → NBO → CPT → JNB → LOS → SEA
+
+## Points Usage
+
+- **180,000 Avios** (SEA→DOH, DOH→NBO)
+- **200,000 United Miles** (LOS→SEA)
+- **22,000 Kenya Airways Miles** (NBO→CPT)
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to view the app.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Deployment
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+This app is configured for easy deployment on Vercel:
 
-## Learn More
+```bash
+npm run build
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Key Features
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Overview Tab
+- Cost summary with cash and points breakdown
+- Visa requirements for each country
+- Travel insights and tips
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Flights Tab
+- Complete flight itinerary with costs
+- Points vs cash breakdown for each segment
 
-## Deploy on Vercel
+### Hotels Tab
+- Accommodation details for each city
+- Nightly rates and total costs
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Search Features
+- **Flight Search**: Direct integration with Google Flights
+- **Hotel Search**: Search across Google Hotels, Booking.com, and Expedia
+- Quick-select buttons for your itinerary cities and routes
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Budget Summary
+
+**Fixed Costs**: $7,851 USD
+- Flights (Cash): $1,500
+- Accommodations: $6,300
+- Visas: $51
+
+**Points Required**: 402,000 total
+- 180k Avios + 200k United + 22k Kenya Airways
+
+**Additional Estimates**: $2,000-$6,000 (activities, food, transport)
+
+Built with ❤️ for your African adventure!

@@ -1,0 +1,253 @@
+{
+  "trip_overview": {
+    "destination": "Multi-country Africa Trip",
+    "dates": "December 2024",
+    "duration_days": 32,
+    "traveler_status": {
+      "citizenship": "Nigeria",
+      "residency": "United States"
+    }
+  },
+  "flights": [
+    {
+      "route": "SEA → DOH",
+      "airline_program": "Avios",
+      "cost_points": 150000,
+      "cost_cash": 300,
+      "currency": "USD",
+      "notes": "Avios points + fees"
+    },
+    {
+      "route": "DOH → NBO",
+      "airline_program": "Avios",
+      "cost_points": 30000,
+      "cost_cash": 0,
+      "currency": "USD",
+      "notes": "No fees"
+    },
+    {
+      "route": "NBO → CPT",
+      "airline_program": "Kenya Airways",
+      "cost_points": 22000,
+      "cost_cash": 0,
+      "currency": "USD",
+      "cabin_class": "Economy",
+      "notes": "Kenya Airways miles"
+    },
+    {
+      "route": "CPT → JNB",
+      "airline_program": null,
+      "cost_points": 0,
+      "cost_cash": 500,
+      "currency": "USD",
+      "notes": "Cash ticket"
+    },
+    {
+      "route": "JNB → LOS",
+      "airline_program": null,
+      "cost_points": 0,
+      "cost_cash": 700,
+      "currency": "USD",
+      "notes": "Cash ticket"
+    },
+    {
+      "route": "LOS → SEA",
+      "airline_program": "United",
+      "cost_points": 200000,
+      "cost_cash": 0,
+      "currency": "USD",
+      "notes": "United miles"
+    }
+  ],
+  "accommodations": [
+    {
+      "location": "Doha",
+      "hotel": "Qatar hotel program",
+      "nights": 2,
+      "cost_cash": 0,
+      "cost_points": "TBD",
+      "currency": "USD",
+      "notes": "Points or corporate rate"
+    },
+    {
+      "location": "Nairobi",
+      "hotel": "JW Marriott",
+      "nights": 5,
+      "cost_cash": 1100,
+      "cost_points": 0,
+      "currency": "USD"
+    },
+    {
+      "location": "Diani Beach",
+      "hotel": "TBD",
+      "nights": null,
+      "cost_cash": 300,
+      "cost_points": 0,
+      "currency": "USD",
+      "notes": "Estimated cost"
+    },
+    {
+      "location": "Cape Town",
+      "hotel": "Protea North Wharf",
+      "nights": 14,
+      "cost_cash": 2200,
+      "cost_points": 0,
+      "currency": "USD"
+    },
+    {
+      "location": "Johannesburg",
+      "hotel": "Melrose Marriott",
+      "nights": 2,
+      "cost_cash": 400,
+      "cost_points": 0,
+      "currency": "USD"
+    },
+    {
+      "location": "Lagos",
+      "hotel": "Four Points by Sheraton",
+      "nights": 9,
+      "cost_cash": 2300,
+      "cost_points": 0,
+      "currency": "USD"
+    }
+  ],
+  "visas": [
+    {
+      "country": "Kenya",
+      "required": true,
+      "cost": 51,
+      "currency": "USD",
+      "type": "eVisa",
+      "notes": "Required for US residents"
+    },
+    {
+      "country": "South Africa",
+      "required": false,
+      "cost": 0,
+      "currency": "USD",
+      "notes": "No visa needed for Nigerian passport holders"
+    },
+    {
+      "country": "Nigeria",
+      "required": false,
+      "cost": 0,
+      "currency": "USD",
+      "notes": "Nigerian citizen"
+    }
+  ],
+  "cost_summary": {
+    "flights_cash": 1500,
+    "accommodations_cash": 6300,
+    "visas": 51,
+    "total_fixed_cash": 7851,
+    "currency": "USD",
+    "points_summary": {
+      "avios": 180000,
+      "united_miles": 200000,
+      "kenya_airways_miles": 22000
+    }
+  },
+  "missing_budget_items": [
+    {
+      "category": "Transportation",
+      "items": [
+        "Airport transfers",
+        "Local transportation (Uber, taxis)",
+        "Inter-city transport"
+      ],
+      "estimated_daily_cost": {
+        "min": 20,
+        "max": 80,
+        "currency": "USD"
+      }
+    },
+    {
+      "category": "Food & Dining",
+      "items": [
+        "Breakfast",
+        "Lunch", 
+        "Dinner",
+        "Snacks/drinks"
+      ],
+      "estimated_daily_cost": {
+        "nairobi": {"min": 30, "max": 60},
+        "cape_town": {"min": 50, "max": 120},
+        "johannesburg": {"min": 40, "max": 80},
+        "lagos": {"min": 25, "max": 70},
+        "currency": "USD"
+      }
+    },
+    {
+      "category": "Activities & Entertainment",
+      "items": [
+        "Tours and excursions",
+        "Museum entries",
+        "Entertainment",
+        "Wine tours (Cape Town)",
+        "Safari options"
+      ],
+      "estimated_cost": "Variable"
+    },
+    {
+      "category": "Communication",
+      "items": [
+        "International roaming",
+        "Local SIM cards",
+        "WiFi access"
+      ]
+    },
+    {
+      "category": "Insurance & Emergency",
+      "items": [
+        "Travel insurance",
+        "Emergency fund (10% of total budget)",
+        "Medical coverage"
+      ]
+    },
+    {
+      "category": "Shopping & Miscellaneous",
+      "items": [
+        "Souvenirs",
+        "Shopping",
+        "Tips and gratuities",
+        "Laundry services"
+      ]
+    }
+  ],
+  "insights": [
+    {
+      "type": "visa_optimization",
+      "description": "As Nigerian citizen + US resident, only need Kenya eVisa ($51) - significant savings"
+    },
+    {
+      "type": "seasonal_pricing",
+      "description": "December is peak season in Cape Town - expect premium pricing for activities"
+    },
+    {
+      "type": "cost_comparison",
+      "description": "Lagos accommodation at $255/night seems high - consider alternatives"
+    },
+    {
+      "type": "budget_allocation",
+      "description": "Cape Town (14 nights) will likely be most expensive for food/activities"
+    },
+    {
+      "type": "points_strategy",
+      "description": "Good use of points for long-haul flights, cash for regional segments"
+    }
+  ],
+  "estimated_additional_costs": {
+    "conservative_estimate": 2000,
+    "moderate_estimate": 3500,
+    "luxury_estimate": 6000,
+    "currency": "USD",
+    "notes": "Based on activities, dining preferences, and transportation choices"
+  },
+  "total_estimated_budget": {
+    "conservative": 9851,
+    "moderate": 11351,
+    "luxury": 13851,
+    "currency": "USD",
+    "excludes": "Points redemption values"
+  }
+}

@@ -1,103 +1,142 @@
-import Image from "next/image";
+'use client';
+
+import { useState } from 'react';
+import itineraryData from '@/data/itinerary.json';
+import { Itinerary } from '@/types/itinerary';
+import FlightCard from '@/components/FlightCard';
+import AccommodationCard from '@/components/AccommodationCard';
+import CostSummary from '@/components/CostSummary';
+import FlightSearch from '@/components/FlightSearch';
+import HotelSearch from '@/components/HotelSearch';
+
+const itinerary = itineraryData as Itinerary;
 
 export default function Home() {
-  return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  const [activeTab, setActiveTab] = useState('overview');
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+  return (
+    <main className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 p-4">
+      <div className="max-w-6xl mx-auto">
+        <div className="bg-white rounded-lg shadow-md p-6 mb-6">
+          <h1 className="text-3xl font-bold text-gray-800 mb-2">
+            {itinerary.trip_overview.destination}
+          </h1>
+          <div className="flex flex-wrap gap-4 text-gray-600">
+            <span className="flex items-center gap-2">
+              <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
+              {itinerary.trip_overview.dates}
+            </span>
+            <span className="flex items-center gap-2">
+              <span className="w-2 h-2 bg-green-500 rounded-full"></span>
+              {itinerary.trip_overview.duration_days} days
+            </span>
+            <span className="flex items-center gap-2">
+              <span className="w-2 h-2 bg-purple-500 rounded-full"></span>
+              {itinerary.trip_overview.traveler_status.citizenship} citizen, {itinerary.trip_overview.traveler_status.residency} resident
+            </span>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+
+        <div className="bg-white rounded-lg shadow-md mb-6">
+          <div className="flex border-b">
+            {[
+              { key: 'overview', label: 'Overview' },
+              { key: 'flights', label: 'Flights' },
+              { key: 'hotels', label: 'Hotels' },
+              { key: 'search-flights', label: 'Search Flights' },
+              { key: 'search-hotels', label: 'Search Hotels' }
+            ].map((tab) => (
+              <button
+                key={tab.key}
+                onClick={() => setActiveTab(tab.key)}
+                className={`px-6 py-4 font-medium ${
+                  activeTab === tab.key
+                    ? 'text-blue-600 border-b-2 border-blue-600'
+                    : 'text-gray-500 hover:text-gray-700'
+                }`}
+              >
+                {tab.label}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        <div className="space-y-6">
+          {activeTab === 'overview' && (
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              <CostSummary costSummary={itinerary.cost_summary} />
+              
+              <div className="bg-white rounded-lg shadow-md p-6">
+                <h2 className="text-xl font-semibold mb-4">Visa Requirements</h2>
+                <div className="space-y-3">
+                  {itinerary.visas.map((visa, index) => (
+                    <div key={index} className={`p-4 rounded-lg border ${
+                      visa.required ? 'bg-yellow-50 border-yellow-200' : 'bg-green-50 border-green-200'
+                    }`}>
+                      <div className="flex justify-between items-start">
+                        <div>
+                          <h3 className="font-medium text-gray-800">{visa.country}</h3>
+                          <p className="text-sm text-gray-600">{visa.notes}</p>
+                          {visa.type && (
+                            <span className="inline-block mt-1 px-2 py-1 bg-gray-100 text-xs rounded">
+                              {visa.type}
+                            </span>
+                          )}
+                        </div>
+                        <div className="text-right">
+                          <span className={`px-2 py-1 rounded text-xs font-medium ${
+                            visa.required ? 'bg-yellow-100 text-yellow-800' : 'bg-green-100 text-green-800'
+                          }`}>
+                            {visa.required ? 'Required' : 'Not Required'}
+                          </span>
+                          {visa.cost > 0 && (
+                            <p className="text-sm text-gray-600 mt-1">${visa.cost}</p>
+                          )}
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="bg-white rounded-lg shadow-md p-6 lg:col-span-2">
+                <h2 className="text-xl font-semibold mb-4">Travel Insights</h2>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {itinerary.insights.map((insight, index) => (
+                    <div key={index} className="p-4 bg-blue-50 rounded-lg border border-blue-200">
+                      <h3 className="font-medium text-blue-800 capitalize">
+                        {insight.type.replace('_', ' ')}
+                      </h3>
+                      <p className="text-sm text-blue-700 mt-2">{insight.description}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          )}
+
+          {activeTab === 'flights' && (
+            <div className="space-y-4">
+              <h2 className="text-2xl font-semibold text-gray-800">Flight Itinerary</h2>
+              {itinerary.flights.map((flight, index) => (
+                <FlightCard key={index} flight={flight} />
+              ))}
+            </div>
+          )}
+
+          {activeTab === 'hotels' && (
+            <div className="space-y-4">
+              <h2 className="text-2xl font-semibold text-gray-800">Accommodations</h2>
+              {itinerary.accommodations.map((accommodation, index) => (
+                <AccommodationCard key={index} accommodation={accommodation} />
+              ))}
+            </div>
+          )}
+
+          {activeTab === 'search-flights' && <FlightSearch />}
+          {activeTab === 'search-hotels' && <HotelSearch />}
+        </div>
+      </div>
+    </main>
   );
 }
