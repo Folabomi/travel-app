@@ -8,6 +8,7 @@ import AccommodationCard from '@/components/AccommodationCard';
 import CostSummary from '@/components/CostSummary';
 import FlightSearch from '@/components/FlightSearch';
 import HotelSearch from '@/components/HotelSearch';
+import FlightPath from '@/components/FlightPath';
 
 const itinerary = itineraryData as Itinerary;
 
@@ -41,6 +42,7 @@ export default function Home() {
           <div className="flex border-b">
             {[
               { key: 'overview', label: 'Overview' },
+              { key: 'flight-path', label: 'Flight Path' },
               { key: 'flights', label: 'Flights' },
               { key: 'hotels', label: 'Hotels' },
               { key: 'search-flights', label: 'Search Flights' },
@@ -114,6 +116,8 @@ export default function Home() {
               </div>
             </div>
           )}
+
+          {activeTab === 'flight-path' && <FlightPath flights={itinerary.flights} />}
 
           {activeTab === 'flights' && (
             <div className="space-y-4">
